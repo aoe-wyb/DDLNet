@@ -117,9 +117,9 @@ class FAM(nn.Module):
         return self.merge(torch.cat([x1, x2], dim=1))
 
 
-class SFNet(nn.Module):
+class DDLNet(nn.Module):
     def __init__(self, mode, num_res=6):
-        super(SFNet, self).__init__()
+        super(DDLNet, self).__init__()
 
         base_channel = 32
 
