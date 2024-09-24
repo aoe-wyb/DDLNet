@@ -23,11 +23,11 @@ cd ..
 ## Training and Evaluation
 ### Training on ITS:
 ~~~
-CUDA_VISIBLE_DEVICES=0 python main.py --mode train --data_dir your_dataset_path/reside-indoor --test_data ITS-train --valid_data ITS-test
+CUDA_VISIBLE_DEVICES=0 python main.py --mode train --data_dir your_dataset_path/reside-indoor --train_data ITS-train --valid_data ITS-test
 ~~~
 ### Training on OTS:
 ~~~
-CUDA_VISIBLE_DEVICES=0 python main.py --mode train --data_dir your_dataset_path/reside-outdoor --test_data OTS-train --valid_data OTS-test
+CUDA_VISIBLE_DEVICES=0 python main.py --mode train --data_dir your_dataset_path/reside-outdoor --train_data OTS-train --valid_data OTS-test
 ~~~
 ### Testing on SOTS-Indoor:
 ~~~
@@ -62,3 +62,4 @@ CUDA_VISIBLE_DEVICES=0 python main.py --mode test --data_dir your_dataset_path/r
 
 ## Contact
 Please contact Yabo Wu (1394884511@qq.com)if you have any questions.
+**Acknowledgment:** This code is based on the [MIMO-UNet](https://github.com/chosj95/MIMO-UNet/tree/main?tab=readme-ov-file#gpu-syncronization-issue-on-measuring-inference-time) and [SFNet](https://github.com/c-yn/SFNet).
