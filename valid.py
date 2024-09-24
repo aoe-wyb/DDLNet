@@ -1,5 +1,5 @@
 import torch
-from data import valid_dataloader, nighttime_valid_dataloader
+from data import valid_dataloader
 from utils import Adder
 import os
 from skimage.metrics import peak_signal_noise_ratio
@@ -8,15 +8,7 @@ import torch.nn.functional as f
 
 def _valid(model, args):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    if args.valid_data == 'NH-Haze':
-        use_transform=True
-    else:
-        use_transform=False
-        
-    data_set = valid_dataloader(path=args.data_dir, batch_size=1, num_workers=0, valid_data=args.valid_data)  # , use_transform=True
-    #data_set = nighttime_valid_dataloader(path=args.data_dir, batch_size=1, num_workers=0, valid_data=args.valid_data)
-
-
+    data_set = valid_dataloader(path=args.data_dir, batch_size=1, num_workers=0, valid_data=args.valid_data)
     model.eval()
     psnr_adder = Adder()
 
