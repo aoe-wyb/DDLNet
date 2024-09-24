@@ -7,6 +7,7 @@ from PIL import Image
 
 from torchvision.transforms import functional as FF
 
+# if "test_data = Dense_Haze" then 'norm = True'
 norm = False
 
 
@@ -115,7 +116,7 @@ def valid_dataloader(path, batch_size=1, num_workers=0, valid_data='SOTS-IN'):
     corp_size = 'whole img'
     if valid_data == 'Dense-test' or valid_data == 'NH-test':
         _format = '_GT.png'
-    elif valid_data == 'OTS-test':  # or valid_data == 'Haze6K-test':
+    elif valid_data == 'OTS-test': 
         _format = '.jpg'
 
     elif valid_data == 'O-test':
@@ -138,7 +139,7 @@ def valid_dataloader(path, batch_size=1, num_workers=0, valid_data='SOTS-IN'):
 
 def test_dataloader(path, batch_size=1, num_workers=0, test_data='ITS-test'):
     image_dir = os.path.join(path, test_data)
-    if test_data == 'Dense-test':
+    if test_data == 'Dense-test' or test_data == 'NH-test':
         _format = '_GT.png'
         corp_size = 'whole img'
     else:
